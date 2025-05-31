@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -17,6 +18,8 @@
     "@eslint/js": "^9.25.0",
     "@tailwindcss/postcss": "^4.1.8",
     "@tailwindcss/vite": "^4.1.8",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react-swc": "^3.9.0",
@@ -25,9 +28,11 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "jsdom": "^26.1.0",
     "postcss": "^8.5.4",
     "tailwindcss": "^4.1.8",
     "vite": "^6.3.5",
-    "vite.config.js.timestamp-1748679817715-914cab7e1568c.mjs": "link:C:/Users/Kiran/Documents/code/file-line-counter/node_modules/.vite-temp/vite.config.js.timestamp-1748679817715-914cab7e1568c.mjs"
+    "vite.config.js.timestamp-1748679817715-914cab7e1568c.mjs": "link:C:/Users/Kiran/Documents/code/file-line-counter/node_modules/.vite-temp/vite.config.js.timestamp-1748679817715-914cab7e1568c.mjs",
+    "vitest": "^3.1.4"
   }
 }

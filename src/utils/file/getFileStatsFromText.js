@@ -1,5 +1,21 @@
 import { LANGUAGES } from "../../constant";
 
+const getCommentBlockState = ({
+  isCommentBlockActive,
+  lineText,
+  startSyntax,
+  endSyntax,
+}) => {
+  const isCommentStart =
+    !isCommentBlockActive && lineText.startsWith(startSyntax);
+
+  const isCommentEnd =
+    isCommentBlockActive &&
+    (lineText.startsWith(endSyntax) || lineText.endsWith(endSyntax));
+
+  return { isCommentStart, isCommentEnd };
+};
+
 /**
  * Calculates statistics about the lines in a given text based on the selected programming language.
  *
@@ -18,15 +34,26 @@ const getFileStatsFromText = (text, selectedLanguage = "js") => {
   const language = LANGUAGES[selectedLanguage];
   lines.forEach((line) => {
     const trimmed = line.trim();
+    const { isCommentBlockActive } = stats;
+
+    const { start, end } = language.multilineComment;
+
+    const { isCommentEnd, isCommentStart } = getCommentBlockState({
+      isCommentBlockActive,
+      lineText: trimmed,
+      startSyntax: start,
+      endSyntax: end,
+    });
+
     if (!trimmed) {
       stats.blank++;
     } else if (trimmed.startsWith(language.singleLineComment)) {
       stats.comments++;
-    } else if (trimmed.startsWith(language.multilineComment.start)) {
+    } else if (isCommentStart) {
       stats.comments++;
       stats.isCommentBlockActive = true;
-    } else if (stats.isCommentBlockActive) {
-      if (trimmed.startsWith(language.multilineComment.end)) {
+    } else if (isCommentBlockActive) {
+      if (isCommentEnd) {
         stats.isCommentBlockActive = false;
       }
       stats.comments++;

@@ -28,7 +28,10 @@ const StatsView = () => {
     <section className="my-18 mx-auto">
       <div className="flex flex-wrap justify-center gap-4">
         {Object.keys(statsKey).map((key) => (
-          <div className="relative w-[200px] h-[150px] bg-gray-700 flex justify-center items-center">
+          <div
+            key={key}
+            className="relative w-[200px] h-[150px] bg-gray-700 flex justify-center items-center"
+          >
             <span className="text-lg absolute top-1 left-1 font-semibold">
               {statsKey[key].name}
             </span>
