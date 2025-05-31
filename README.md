@@ -1,12 +1,97 @@
-# React + Vite
+# File Line Counter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple web application to count the number of lines in selected files or folders. Built with React, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Completed Features ✅
+- Support multiple programming language syntax (JavaScript and Python).
+- Support reading one source file and printing results
+- Types of lines supported: Blank, Comments, Code.
+- Supports single-line and multi-line comments.
+- A line counts as a comment only if it has no other code.
+- Designed for extensibility: you should be able to support new language syntaxes by
+extending this solution.
+- UTs using vites
 
-## Expanding the ESLint configuration
+Pending Features ⏳
+- Supporting multiple files and giving totals for an entire source tree.
+- Ability to add more granular breakup (eg: classify lines as imports, variable
+declarations, etc)
+  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher recommended)
+- pnpm (or npm/yarn)
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/file-line-counter.git
+   cd file-line-counter
+   ```
+2. Install dependencies:
+   ```sh
+   pnpm install
+   # or
+   npm install
+   # or
+   yarn install
+   ```
+
+### Running the App
+
+Start the development server:
+
+```sh
+pnpm dev
+# or
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser to view the app.
+
+### Building for Production
+
+```sh
+pnpm build
+# or
+npm run build
+# or
+yarn build
+```
+
+### Running Tests
+
+```sh
+pnpm test
+# or
+npm test
+# or
+yarn test
+```
+
+## Project Structure
+
+- `src/` - Main source code
+  - `features/` - Feature modules (file selection, stats view)
+  - `utils/` - Utility functions
+  - `context/` - React context for global state
+- `public/` - Static assets
+- `index.html` - Main HTML file
+
+## Technologies Used
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## License
+
+MIT
