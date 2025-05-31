@@ -1,6 +1,6 @@
 # File Line Counter
 
-A simple web application to count the number of lines in selected files or folders. Built with React, Vite, and Tailwind CSS.
+A simple web application to count the number of lines in selected file. Built with React, Vite, and Tailwind CSS.
 https://lines-of-code-eight.vercel.app
 
 ## Features 
