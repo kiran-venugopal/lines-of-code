@@ -5,6 +5,9 @@ export const LANGUAGES = {
       start: "/*",
       end: "*/",
     },
+    stringStart: "`",
+    stringEnd: "`",
+    variableDec: ["let ", "const ", "var "],
   },
   python: {
     singleLineComment: "#",

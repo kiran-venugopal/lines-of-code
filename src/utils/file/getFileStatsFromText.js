@@ -29,7 +29,9 @@ const getFileStatsFromText = (text, selectedLanguage = "js") => {
     blank: 0,
     comments: 0,
     code: 0,
-    isCommentBlockActive: 0,
+    numOfVars: 0,
+    isCommentBlockActive: false,
+    isStringBlockActive: false,
   };
   const language = LANGUAGES[selectedLanguage];
   lines.forEach((line) => {
@@ -48,8 +50,16 @@ const getFileStatsFromText = (text, selectedLanguage = "js") => {
     if (!trimmed) {
       stats.blank++;
     } else if (trimmed.startsWith(language.singleLineComment)) {
+      if (stats.isStringBlockActive) {
+        stats.code++;
+        return;
+      }
       stats.comments++;
     } else if (isCommentStart) {
+      if (stats.isStringBlockActive) {
+        stats.code++;
+        return;
+      }
       stats.comments++;
       stats.isCommentBlockActive = true;
     } else if (isCommentBlockActive) {
@@ -57,7 +67,19 @@ const getFileStatsFromText = (text, selectedLanguage = "js") => {
         stats.isCommentBlockActive = false;
       }
       stats.comments++;
+    } else if (
+      trimmed.includes(language.stringStart) &&
+      trimmed.split(language.stringStart).length % 2 !== 0
+    ) {
+      stats.isStringBlockActive = !stats.isStringBlockActive;
+      stats.code++;
     } else {
+      const isVarDec = language.variableDec.find((dec) =>
+        trimmed.startsWith(dec)
+      );
+      if (isVarDec) {
+        stats.numOfVars++;
+      }
       stats.code++;
     }
   });

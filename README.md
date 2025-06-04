@@ -3,23 +3,24 @@
 A simple web application to count the number of lines in selected file. Built with React, Vite, and Tailwind CSS.
 https://lines-of-code-eight.vercel.app
 
-## Features 
+## Features
 
 Completed Features ✅
+
 - Support multiple programming language syntax (JavaScript and Python).
 - Support reading one source file and printing results
 - Types of lines supported: Blank, Comments, Code.
 - Supports single-line and multi-line comments.
 - A line counts as a comment only if it has no other code.
 - Designed for extensibility: you should be able to support new language syntaxes by
-extending this solution.
+  extending this solution.
 - UTs using vites
 
 Pending Features ⏳
+
 - Supporting multiple files and giving totals for an entire source tree.
 - Ability to add more granular breakup (eg: classify lines as imports, variable
-declarations, etc)
-  
+  declarations, etc)
 
 ## Getting Started
 
@@ -96,3 +97,10 @@ yarn test
 ## License
 
 MIT
+
+For supporting different languages:
+
+- regex syntax mapping object
+- we should follow a builder/currying approach
+  - language specific checks, like indentation
+  - common checks, regex for each syntax

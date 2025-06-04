@@ -10,7 +10,13 @@ const statsKey = {
   blank: {
     name: "Blank:",
   },
+  numOfVars: {
+    name: "Number of variables:",
+    skipForTotal: true,
+  },
 };
+
+const totalKeys = ["code", "comments", "blank"];
 
 const StatsView = () => {
   const { fileStats } = useFileContext();
@@ -43,10 +49,7 @@ const StatsView = () => {
             Total:
           </span>
           <span className="text-6xl font-semibold">
-            {Object.keys(fileStats).reduce(
-              (acc, key) => acc + fileStats[key],
-              0
-            )}
+            {totalKeys.reduce((acc, key) => acc + fileStats[key], 0)}
           </span>
         </div>
       </div>
